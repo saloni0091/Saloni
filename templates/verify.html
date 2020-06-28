@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>Verify</h1>
+<p>We sent OTP on email <b>{{ email }}</b>. Please enter the OTP to verify.</p>
+<form method="post" action="{% url 'verify' %}">
+    {% csrf_token %}
+    <input type="hidden" name="email" value="{{ email }}">
+    <input type="password" name="otp" placeholder="Enter OTP">
+    <br/>
+    <input type="submit">
+    {{ err }}
+
+</form>
+</body>
+</html>
